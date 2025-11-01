@@ -15,8 +15,6 @@ export interface useStoreModalInterface {
 }
 
 export interface modalState {
-  errors?: {
-    error?: string[];
-  };
+  errors?: string[] | null;
   message?: string | null;
 }
