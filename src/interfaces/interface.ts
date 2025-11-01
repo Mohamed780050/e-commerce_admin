@@ -13,3 +13,10 @@ export interface useStoreModalInterface {
   onOpen: () => void;
   onClose: () => void;
 }
+
+export interface modalState {
+  errors?: {
+    error?: string[];
+  };
+  message?: string | null;
+}

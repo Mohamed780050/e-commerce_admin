@@ -2,11 +2,20 @@
 
 import { useStoreModal } from "@/hooks/use-store-modal";
 import Modal from "./Modal";
-import { useEffect, useState } from "react";
+import { useActionState, useEffect, useState } from "react";
+import { modalState } from "@/interfaces/interface";
+import { CreateAStore } from "@/features/dashboard/actions/server action";
 
 export default function StoreModal() {
+  const initialState: modalState = { message: null, errors: {} };
+
   const { isOpen, onClose } = useStoreModal();
   const [isMounted, setMounted] = useState(false);
+  const [state, formAction, isPending] = useActionState(
+    CreateAStore,
+    initialState
+  );
+
   useEffect(() => {
     setMounted(true);
   }, []);
